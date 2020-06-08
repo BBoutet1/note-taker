@@ -10,7 +10,7 @@
 
 * [Technologies](#technologies)
 * [Installation](#installation)
-* [User story](#user-story)
+* [Uage](#usage)
 * [Licence](#licence)
 * [Contributing](#contributing)
 * [Questiions](#questions)
@@ -37,7 +37,7 @@ Run the following  command line
 node server.js
 ```
 
-## User Story
+## Usage
 
 AS A user, I want to be able to write and save notes
 
