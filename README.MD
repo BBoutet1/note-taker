@@ -1,6 +1,6 @@
 # Note Taker
 
- This application can be used to write, save, and delete notes. This application uses an express backend and save and retrieve note data from a JSON file.
+ This application can be used to write, save, and delete notes. It uses an express backend and save and retrieve note data from a JSON file.
 
 ## Table of contents
 
@@ -10,7 +10,7 @@
 
 * [Technologies](#technologies)
 * [Installation](#installation)
-* [Uage](#usage)
+* [User story](#user-story)
 * [Licence](#licence)
 * [Contributing](#contributing)
 * [Questiions](#questions)
@@ -37,7 +37,7 @@ Run the following  command line
 node server.js
 ```
 
-## Usage
+## User story
 
 AS A user, I want to be able to write and save notes
 

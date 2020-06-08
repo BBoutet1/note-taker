@@ -14,10 +14,9 @@ module.exports = function(app) {
     // API GET Requests
     // Below code handles when users "visit" a page.
     // In each of the below cases when a user visits a link
-    // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
     // ---------------------------------------------------------------------------
 
-    // Read  the db.json file and return all saved notes as JSON
+    // Reading the db.json file and return all saved notes as JSON
     app.get("/api/notes", function(req, res) {
         const notes_db = (fs.readFileSync("./db/db.json", function(error) {
             if (error) throw error;
@@ -28,7 +27,7 @@ module.exports = function(app) {
     //Writing and saving a new note
     app.post("/api/notes", function(req, res) {
 
-        //Receive a new note to save on the request body
+        //Receiving a new note to save on the request body
         const title = req.body.title;
         const text = req.body.text;
 
