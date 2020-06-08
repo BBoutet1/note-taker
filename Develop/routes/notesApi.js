@@ -5,7 +5,6 @@
 // ===============================================================================
 
 const fs = require("fs");
-const path = require("path");
 
 // ===============================================================================
 // ROUTING
@@ -43,7 +42,7 @@ module.exports = function(app) {
         if (notes_db.length > 0) {
             id = lastNote.id + 1;
         }
-        notes.push({
+        notes_db.push({
             "title": title,
             "text": text,
             "id": id
@@ -64,7 +63,7 @@ module.exports = function(app) {
 
         for (var i = 0; i < notes_db.length; i++) {
             if (notes_db[i].id == deleteId) {
-                notes.splice(i, 1);
+                notes_db.splice(i, 1);
             }
         }
         fs.writeFileSync("./db/db.json", JSON.stringify(notes_db), function(error) {
