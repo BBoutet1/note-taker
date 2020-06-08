@@ -26,7 +26,7 @@ module.exports = function(app) {
         res.send(JSON.parse(notes_db));
     });
 
-    //Writing and saving a new note note to save
+    //Writing and saving a a new note 
     app.post("/api/notes", function(req, res) {
 
         //Receive a new note to save on the request body
@@ -39,9 +39,14 @@ module.exports = function(app) {
             })))
             // The note id is determined by incrementing the last note id
         const lastNote = notes_db[notes_db.length - 1];
+        let id = 1;
+        if (notes_db.length > 0) {
+            id = lastNote.id + 1;
+        }
         notes.push({
             "title": title,
             "text": text,
+            "ide": id
         });
         fs.writeFileSync("./db/db.json", JSON.stringify(notes_db), function(error) {
                 if (error) throw error;
