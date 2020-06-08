@@ -34,12 +34,13 @@ module.exports = function(app) {
 
         //Add the new note to the db.json file,
         const notes_db = JSON.parse((fs.readFileSync("./db/db.json", function(error) {
-                if (error) throw error;
-            })))
-            // The note id is determined by incrementing the last note id
-        const lastNote = notes_db[notes_db.length - 1];
+            if (error) throw error;
+        })))
+
+        // The note id is determined by incrementing the last note id
         let id = 1;
-        if (notes_db.length > 0) {
+        if (notes_db.length > 1) {
+            const lastNote = notes_db[notes_db.length - 1];
             id = lastNote.id + 1;
         }
         notes_db.push({
