@@ -38,7 +38,7 @@ module.exports = function(app) {
 
         // The note id is determined by incrementing the last note id
         let id = 1;
-        if (notes_db.length > 1) {
+        if (notes_db.length > 0) {
             const lastNote = notes_db[notes_db.length - 1];
             id = lastNote.id + 1;
         }
