@@ -26,7 +26,7 @@ module.exports = function(app) {
         res.send(JSON.parse(notes_db));
     });
 
-    //Writing and saving a a new note 
+    //Writing and saving a new note
     app.post("/api/notes", function(req, res) {
 
         //Receive a new note to save on the request body
@@ -46,7 +46,7 @@ module.exports = function(app) {
         notes.push({
             "title": title,
             "text": text,
-            "ide": id
+            "id": id
         });
         fs.writeFileSync("./db/db.json", JSON.stringify(notes_db), function(error) {
                 if (error) throw error;
@@ -55,4 +55,21 @@ module.exports = function(app) {
         res.send(notes_db);
     });
 
+    // Query parameter containing the id of a note to delete.
+    app.delete("/api/notes/:id", function(req, res) {
+        const deleteId = req.params.id
+        const notes_db = JSON.parse((fs.readFileSync("./db/db.json", function(error) {
+            if (error) throw error;
+        })))
+
+        for (var i = 0; i < notes_db.length; i++) {
+            if (notes_db[i].id == deleteId) {
+                notes.splice(i, 1);
+            }
+        }
+        fs.writeFileSync("./db/db.json", JSON.stringify(notes_db), function(error) {
+            if (error) throw error;
+        })
+        res.send(notes_db);
+    })
 };
